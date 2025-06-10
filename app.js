@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const morgan = require('morgan');
+const cookieParser = require("cookie-parser");
 // Route imports
 const authRoutes = require('./routes/authRoutes');
 const gameRoutes = require('./routes/gameRoutes');
@@ -18,7 +19,20 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'https://tic-tac-toe-backend-fgjr.onrender.com',
+      'https://tranquil-vacherin-7441e1.netlify.app'
+    ],
+    methods: ['POST', 'GET', 'DELETE', 'PUT', 'PATCH', 'OPTIONS'],
+    credentials: true,
+  })
+);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // API Routes
 app.use('/api/auth', authRoutes);
