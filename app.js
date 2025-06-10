@@ -19,17 +19,14 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-app.use(
-  cors({
-    origin: [
-      'http://localhost:5173',
-      'https://tic-tac-toe-backend-fgjr.onrender.com',
-      'https://tranquil-vacherin-7441e1.netlify.app'
-    ],
-    methods: ['POST', 'GET', 'DELETE', 'PUT', 'PATCH', 'OPTIONS'],
-    credentials: true,
-  })
-);
+
+
+app.use(cors({
+  origin: 'tic-tac-toe-rho-nine-61.vercel.app', // or '*' for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
