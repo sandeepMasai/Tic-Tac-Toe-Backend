@@ -15,10 +15,7 @@ const app = express();
 // Middleware
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false })); 
-app.use(cors({
-    origin: process.env.FRONTEND_URL , 
-    credentials: true
-}));
+app.use(cors())
 
 // API Routes
 app.use('/api/auth', authRoutes);
