@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { notFound, errorHandler } = require('./middlewares/errorHandler');
-
+const morgan = require('morgan');
 // Route imports
 const authRoutes = require('./routes/authRoutes');
 const gameRoutes = require('./routes/gameRoutes');
