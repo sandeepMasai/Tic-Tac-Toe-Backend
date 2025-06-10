@@ -1,12 +1,13 @@
 let io;
 
 const initSocket = (httpServer) => {
-    io = require('socket.io')(httpServer, {
-        cors: {
-            origin: process.env.FRONTEND_URL || 'http://localhost:3000', 
-            methods: ['GET', 'POST'],
-        },
-    });
+   io = require('socket.io')(httpServer, {
+  cors: {
+    origin: process.env.FRONTEND_URL?.replace(/\/+$/, ''), 
+    methods: ['GET', 'POST'],
+  },
+});
+
 
     io.on('connection', (socket) => {
         console.log('A user connected:', socket.id);
