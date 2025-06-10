@@ -15,9 +15,20 @@ const app = express();
 // Middleware
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false })); 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://tranquil-vacherin-7441e1.netlify.app"
+];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL , 
-    credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true // if using cookies or auth headers
 }));
 
 // API Routes
