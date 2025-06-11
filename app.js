@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 app.use(cors({
-  origin: 'https://harmonious-tiramisu-597341.netlify.app', 
+  origin: 'https://melodic-tapioca-7f2f8d.netlify.app/', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
