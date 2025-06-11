@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 app.use(cors({
-  origin: 'tic-tac-toe-rho-nine-61.vercel.app', // or '*' for testing
+  origin: 'https://harmonious-tiramisu-597341.netlify.app', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
