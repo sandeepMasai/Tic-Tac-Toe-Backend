@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
 
 
 app.use(cors({
-  origin: 'https://melodic-tapioca-7f2f8d.netlify.app/', 
+  origin: 'https://tic-tac-toe-ae0a.onrender.com', 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
